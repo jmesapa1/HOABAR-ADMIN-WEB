@@ -1,0 +1,24 @@
+<div class="row">
+
+    <img src="assets/img/LOGO.png" style="width:200px;margin:auto">
+</div>
+<form style="    margin: auto;
+max-width: 60vh;
+width: 70%;
+min-width: 35vh;">
+    <div class="form-group">
+        <label for="exampleInputEmail1">Nombre completo</label>
+        <input type="email" [(ngModel)]="nombre" name="nombre" class="form-control" id="nombreInput" aria-describedby="nombreHelp" placeholder="Ingrese su nombre completo">
+        <small id="nombreHelp" class="form-text text-muted">Nombre completo</small>
+    </div>
+    <div class="form-group">
+        <label for="exampleInputEmail1">Correo electrónico</label>
+        <input type="email" [(ngModel)]="correo" name="correo" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Ingrese correo electrónico">
+        <small id="emailHelp" class="form-text text-muted">Correo personal</small>
+    </div>
+    <div class="form-group">
+        <label for="exampleInputEmail1">Celular</label>
+        <input type="tel" [(ngModel)]="celular" name="celular" class="form-control" id="exampleInputEmail1" placeholder="Ingrese su celular">
+        <small id="emailHelp" class="form-text text-muted">Celular</small>
+    </div>
+</form>

@@ -1,0 +1,112 @@
+<div class=" content">
+  <div class=" row">
+    <div class=" col-md-12">
+      <div class="row">
+        <button type="submit" class="btn btn-primary" (click)="ActivarInactivarServicio()" style="margin-right:10px;margin-left: auto;">
+          {{estadoServicio?"Deshabilitar Servicio":"Habilitar Servicio"}}
+        </button>
+      </div>
+      <div class=" card">
+        <div class=" card-header">
+          <h3 class=" title">Canciones elegidas por los clientes</h3>
+        </div>
+        <div class=" card-body all-icons container">
+          <div class=" row">
+            <div class="col-xs-1 col-sm-1 col-md-1 col-xl-4 col-lg-4"
+              *ngFor="let cancion of cancionesClientes; let i=index">
+              <a>
+                <div *ngIf="cancion?.usuarios!=undefined && cancion?.usuarios.length>1"
+                  (click)="verUsuarios(cancion,content)">
+                  <a style="color:white !important;margin:auto">{{i+1}}. + Ver usuarios</a>
+                </div>
+                <div *ngIf="cancion?.usuarios!=undefined && cancion?.usuarios.length===1" style="text-align: center;">
+                  <p style="text-align: center;margin:auto"><a style="color:white;"></a>
+                    <b style="font-weight:bold">{{i+1}}. {{cancion.usuarios[0].nombre}}</b>
+                  </p>
+                </div>
+              </a>
+              <div class=" font-icon-detail row" style="   text-overflow: ellipsis;overflow: hidden;   min-height: 50px;
+                      white-space: nowrap;max-height: 120px;">
+                <div class="row">
+                  <div class="col-4">
+                    <img src={{cancion.data.imagen}} style="width: 100%">
+                  </div>
+                  <div class="col-8">
+                    <h4 style="margin-bottom: 0px;text-overflow: ellipsis;
+                        white-space: break-spaces;    text-align: left;" class=" card-title">
+                      {{cancion?.data.nombre}}
+                    </h4>
+                    <h6 class=" card-title" style="text-overflow: ellipsis;overflow: hidden;   
+                            white-space: nowrap;    text-align: left;margin-left: 5px;">
+                      <a class="textoAzul">{{cancion.data.artistas}}</a>
+                    </h6>
+
+                    <button type="submit" class="btn btn-primary" (click)="encolarCancion(cancion)"
+                      style="margin:auto;margin-left:10px;margin-right: 10px;border-radius:100% ; width: 20%;height: 40%;    padding: initial;"><i
+                        class="tim-icons icon-simple-add
+
+                    "></i></button>
+
+                    <button type="submit" class="btn btn-secondary" (click)="eliminarCancion(cancion)"
+                      style="margin:auto;margin-left:10px;margin-right: 10px; border-radius: 100%; width: 20%;height: 40%;    padding: initial;">
+                      <i class="tim-icons icon-trash-simple"></i>
+                    </button>
+                  </div>
+
+
+
+
+
+
+                </div>
+              </div>
+
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <button type="submit" class="btn btn-primary" (click)="enviarAcola()"
+        *ngIf="reproductorActivo && cancionesClientes.length!=0"
+        style="margin:auto; width: 100%;border-radius: 5px;">Enviar a cola</button>
+
+    </div>
+  </div>
+
+
+  <ng-template #content let-modal>
+    <div class=" modal-header" style="padding: 10px;
+  padding-top: 20px;
+">
+      <h2 class="modal-title" id="modal-basic-title" style="color: white;">Usuarios solicitantes
+        <button type="button" style="padding: 0px;" class="close" aria-label="Close"
+          (click)="modal.dismiss('Cross click')">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </h2>
+
+
+    </div>
+    <div class=" card" style="text-align: center; margin-bottom: 0px">
+
+      <div class="modal-body" style="padding: 10px;padding-top:   0px; background: white;  ">
+        <div class="row">
+          <div class="col">
+            <div class="card card-user font-icon-detail"
+              style="width: auto;height: auto;margin-bottom: 0px;background:black">
+
+              <div>
+                <p *ngFor="let usuario of cancionSeleccionada.usuarios">{{usuario.nombre}}</p>
+              </div>
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+    </div>
+  </ng-template>
+
+
+  <ngx-ui-loader></ngx-ui-loader>
