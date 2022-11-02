@@ -88,6 +88,7 @@
         "bootstrap": "4.1.1",
         "chart.js": "2.8.0",
         "core-js": "3.6.4",
+        "fast-glob": "^3.2.12",
         "firebase": "^8.10.1",
         "firebaseui": "^4.7.3",
         "firebaseui-angular": "^5.1.3",

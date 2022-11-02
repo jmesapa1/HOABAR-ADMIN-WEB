@@ -38,7 +38,13 @@ export class ExportarComponent implements OnInit {
 
     Object.keys(data).forEach((key, index) => {
 
-      let mensaje=  "HOA BAR: "+data[key].nombre + ', ya que has puesto tus temas favoritos, ' +'solo por HOY realizando tu reserva y mostrando este mensaje recibe una media de trago nacional. !​ **aplican términos y condiciones **'
+      let mensaje=  "🌟HOA BAR🌟\r\n"+
+
+      data[key].nombre+" llego el momento🕥 de venir y perrear en Halloween, busca tu mejor disfraz🎅 y démosle hasta abajo.🎶 \r\n"+
+    
+      "Mostrando este mensaje📨 recibirás un THE BIG BOSS de cortesía en HOA BAR\r\n\r\n"+
+
+      "@HOA.BAR"
       let celular=""
       if(data[key].celular.substring(0,2)!="57" && data[key].celular.length===10){
         console.log("HAY QUE PONERLE 57",data[key].celular)
